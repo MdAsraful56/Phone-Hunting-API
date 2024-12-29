@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Hunting API</title>
+    <!-- tailwindcss & daisyui link  -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="p-2">
+    <header>
+        <!-- <h1>Welcome to my Phone Hunter!</h1> -->
+        <div class="navbar bg-base-100">
+            <div class="flex-1">
+                <a class="btn btn-ghost text-xl">Hot Gadgets</a>
+            </div>
+            <div class="flex-none">
+                <button class="btn btn-info">Sign Up</button>
+            </div>
+            </div>
+    </header>
+
+    <main class="container mx-auto mt-10">
+
+        <section class="bg-gray-100 p-4 m-4 rounded-2xl">
+            <input id="search-field" type="text" placeholder="Search your phone" class="input input-bordered w-[80%]" />
+            <button onclick="handleSearch()" class="btn btn-accent text-right w-[18%]">Search</button>
+        </section>
+
+        <section>
+            <!-- loader  -->
+            <div id="loader" class="text-center my-10 hidden">
+                <span class="loading loading-dots loading-lg"></span>
+            </div>
+            <!-- card result  -->
+            <div id="container" class=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+            <!-- show all btn  -->
+            <div class="hidden text-center my-10" id="showAll">
+                <button onclick="handleShowAll()" class="btn btn-accent">Show All</button>
+            </div>
+        </section>
+
+        <section>
+
+            <!-- Open the modal using ID.showModal() method -->
+            <!-- <button class="btn" onclick="show_details_modal.showModal()">open modal</button> -->
+            <dialog id="show_details_modal" class="modal modal-bottom sm:modal-middle">
+            <div id="details" class=" text-left modal-box bg-gray-100 p-4 flex w-10/12 flex-col shadow-xl">
+                    <h3  class="text-lg font-bold mt-2 text-left" id="details_title"></h3>
+                    <p class="py-4">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                    <h4 class="text-base font-bold text-left">Storage : <span id="storage" class="font-medium"></span></h4>
+                    <h4 class="text-base font-bold text-left">Display Size : <span id="display" class="font-medium"></span></h4>
+                    <h4 class="text-base font-bold text-left">Chipset : <span id="chipset" class="font-medium"></span></h4>
+                    <h4 class="text-base font-bold text-left">Memory : <span id="memory" class="font-medium"></span></h4>
+                    <h4 class="text-base font-bold text-left">Slug : <span id="slug" class="font-medium"></span></h4>
+                    <h4 class="text-base font-bold text-left">Release data : <span id="release" class="font-medium"></span></h4>
+                    <h4 class="text-base font-bold text-left">Brand : <span id="brand" class="font-medium"></span></h4>
+                    <h4 class="text-base font-bold text-left">GPS : <span id="GPS" class="font-medium"></span></h4>
+                <div class="modal-action">
+                    <form method="dialog">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button id="closeBtn" class="btn">Close</button>
+                    </form>
+                </div>
+            </div>
+            </dialog>
+        </section>
+    </main>
+
+    <footer>
+
+    </footer>
+    <script src="js/phone.js"></script>
+</body>
+</html>
